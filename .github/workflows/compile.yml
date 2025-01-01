@@ -23,7 +23,7 @@ jobs:
       - name: "Downloads grader scripts"
         uses: actions/checkout@master
         with:
-          repository: utah-cs4470-sp23/grader
+          repository: utah-cs4470-sp25/grader
           path: grader
       - name: "Counts total parts"
         run: echo HW_PARTS=$(make -s -C grader count-current) >> $GITHUB_ENV
