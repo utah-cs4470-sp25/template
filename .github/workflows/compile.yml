@@ -26,7 +26,7 @@ jobs:
           repository: utah-cs4470-sp25/grader
           path: grader
       - name: "Counts total parts"
-        run: echo HW_PARTS=$(make -s -C grader count-current) >> $GITHUB_ENV
+        run: echo HW_PARTS=$(make -s -C grader count-current) >> $GITHUB_ENV; echo $HW_PARTS 
       - name: Total of ${{ env.HW_PARTS }} parts
         run: true
       - name: Grade part ${{ matrix.part }}
