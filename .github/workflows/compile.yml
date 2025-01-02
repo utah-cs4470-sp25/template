@@ -21,8 +21,8 @@ jobs:
       - name: Checkout template repository
         uses: actions/checkout@master
 
-      - name: Install build essentials
-        run: sudo apt-get update && sudo apt-get install -y build-essential
+      - name: Check GCC version
+        run: gcc --version
         
       - name: Compile the compiler
         run: make compile
