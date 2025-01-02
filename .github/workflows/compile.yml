@@ -41,6 +41,11 @@ jobs:
         run: |
           (cd rt && make)
 
+      - name: Check Configuration Log
+        if: failure()
+        run: cat rt/libpng-1.6.43/config.log
+
+
       - name: "Downloads grader scripts"
         uses: actions/checkout@master
         with:
