@@ -38,6 +38,9 @@ jobs:
 
       - name: Setup runtime
         run: (cd rt && make)
+
+      - name: View config.log
+        run: cat /path/to/libpng-1.6.43/config.log
         
       - name: "Downloads grader scripts"
         uses: actions/checkout@master
