@@ -21,8 +21,8 @@ jobs:
       - name: Checkout template repository
         uses: actions/checkout@master
 
-      - name: Ensure gcc is installed
-        run: sudo apt-get install gcc
+      - name: Install build essentials
+        run: sudo apt-get update && sudo apt-get install -y build-essential
         
       - name: Compile the compiler
         run: make compile
