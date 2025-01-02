@@ -9,6 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - run: make compile
+
   parts:
     name: "Grades assignment"
     runs-on: ubuntu-latest
@@ -37,11 +38,18 @@ jobs:
           path: rt
 
       - name: Setup runtime
-        run: (cd rt && make)
-
-      - name: View config.log
-        run: cat /path/to/libpng-1.6.43/config.log
+        run: |
+          (cd rt && ./configure --prefix /home/runner/work/jpl-bhargav/jpl-bhargav/rt/libpng-1.6.43/target 2>&1 | tee config.log)
         
+      - name: Check if config.log exists and print it
+        run: |
+          if [ -f config.log ]; then
+            echo "config.log contents:"
+            cat config.log
+          else
+            echo "config.log not found"
+          fi
+
       - name: "Downloads grader scripts"
         uses: actions/checkout@master
         with:
