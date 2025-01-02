@@ -22,12 +22,6 @@ jobs:
       - name: Checkout template repository
         uses: actions/checkout@master
 
-      - name: Install Clang
-        run: |
-          sudo apt update
-          sudo apt install -y clang
-          echo "CC=clang" >> $GITHUB_ENV
-        
       - name: Compile the compiler
         run: make compile
 
