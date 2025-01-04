@@ -11,7 +11,7 @@ jobs:
       - run: make compile
   parts:
     name: "Grades assignment"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs: [compiles]
     strategy:
       fail-fast: false
