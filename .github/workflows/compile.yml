@@ -31,10 +31,7 @@ jobs:
           repository: utah-cs4470-sp25/runtime
           path: rt
           ref: linux
-      - uses: awalsh128/cache-apt-pkgs-action@latest
-        with:
-          packages: imagemagick nasm
-          version: 1.0
+      - run: sudo apt-get install -y nasm
       - name: "Compile runtime"
         run: (cd rt; make)
       - name: "Counts total parts"
