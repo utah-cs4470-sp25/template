@@ -30,6 +30,7 @@ jobs:
         with:
           repository: utah-cs4470-sp25/runtime
           path: rt
+          ref: linux
       - name: "Compile runtime"
         run: (cd rt; make)
       - name: "Counts total parts"
