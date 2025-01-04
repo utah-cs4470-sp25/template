@@ -25,8 +25,15 @@ jobs:
         with:
           repository: utah-cs4470-sp25/grader
           path: grader
+      - name: "Download runtime"
+        uses: actions/checkout@master
+        with:
+          repository: utah-cs4470-sp25/runtime
+          path: rt
+      - name: "Compile runtime"
+        run: (cd rt; make)
       - name: "Counts total parts"
-        run: echo HW_PARTS=$(make -s -C grader count-current) >> $GITHUB_ENV; echo $HW_PARTS 
+        run: echo HW_PARTS=$(make -s -C grader count-current) >> $GITHUB_ENV; echo $HW_PARTS
       - name: Total of ${{ env.HW_PARTS }} parts
         run: true
       - name: Grade part ${{ matrix.part }}
