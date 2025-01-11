@@ -1,14 +1,32 @@
 CS 4470 Compilers Template
 ==========================
 
-Please use this repository to hold all of your work for CS 4470
-compilers. You will submit your assigments, and they will be graded,
-using the contents of this repository only, at the commit
-corresponding to the latest possible submission time (including
-all granted extensions).
+Use this repository to store your work for CS 4470: Compilers.
 
-Picking a Language
-------------------
+To submit assignments, push commits to this repo.
+They will be graded based on the latest commit up to the
+deadline (after all granted extensions).
+
+Setup
+-----
+
+1. Clone this repository
+2. Choose a language
+    * If using Python, delete `compiler.java` and `Makefile_java`, and rename `Makefile_py` to `Makefile`:
+      - `rm compiler.java Makefile_java`
+      - `mv Makefile_py Makefile`
+    * If using Java, delete and rename vice-versa
+    * If using another language (with instructor permission), create your own `Makefile` and main file and update GitHub actions accordingly. See "Choosing a Language" below for more info.
+3. Inside your clone of `template/`, clone the grader and runtime repos. Add them to your gitignore. Build the runtime repo too:
+   - `git clone https://github.com/utah-cs4470-sp25/grader.git`
+   - `echo "grader/\nrt/" >> .gitignore`
+   - `git clone https://github.com/utah-cs4470-sp25/runtime rt; cd rt; make; cd ..;`
+4. For HW1, make an examples folder too. Put your HW1 work there:
+   - `mkdir examples`
+
+
+Choosing a Language
+-------------------
 
 This repository supports work in Java (19) or
 Python (3.10). It correspondingly includes starter files
@@ -17,20 +35,21 @@ compiles and runs, doing nothing and returning successfully. For each
 language there is also a Makefile: `Makefile_java`
 and `Makefile_py`.
 
-To pick your language, delete the starter files for the other two
-languages and rename the remaining Makefile to be named `Makefile`. If
+To choose your language, delete the starter files for the other
+language and rename the remaining Makefile to be named `Makefile`. If
 you want to use a language other than Java or Python, you need
 special permission; contact the instructors. Keep in mind that using
 another language will be more work, and you will not be able to
 receive the same level of instructor support. Compilers are
-complicated. It is abjectly irresponsible to try to learn a new
+complicated. Do not try to learn a new
 language at the same time as you learn compilers.
+
 
 Compiling your Compiler
 -----------------------
 
 A compiler is just a normal computer program. Before running it you
-need to compile it. So, once you've picked a language, compile your
+need to compile it. So, once you've chosen a language, compile your
 compiler by running:
 
     make compile
@@ -41,7 +60,7 @@ need to install one of `javac`/`java` or `python3`
 system PATH. If you're having trouble with this step, please talk
 to your TA or one of your instructors.
 
-Note that if you're using Python, `make compile` will do a bit of
+Note that if you are using Python, `make compile` will do a bit of
 syntax checking but that's about it. If you are familiar with and want
 to use tools like Mypy, feel free to edit your Makefile to do so.
 
